@@ -300,9 +300,40 @@ td.notes-cell { font-size: 12px; color: var(--grey); max-width: 160px; }
 #toast.hidden { display: none; }
 
 @media (max-width: 768px) {
-  header { padding: 14px 16px; }
-  .header-stats { display: none; }
-  .controls { padding: 16px; }
-  .table-wrap { padding: 0 16px; }
-  th, td { padding: 10px 12px; }
+  header { padding: 12px 16px; }
+  .logo { font-size: 17px; }
+  .header-stats { flex-wrap: wrap; gap: 8px; }
+  .stat { font-size: 11px; padding: 4px 10px; }
+
+  .controls { padding: 12px 16px; gap: 8px; }
+  .controls input { min-width: 100%; }
+  .controls select { flex: 1; }
+
+  .table-wrap { padding: 0 16px; overflow-x: unset; }
+
+  /* Hide table, show cards */
+  table thead { display: none; }
+  table, tbody { display: block; }
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    gap: 6px;
+  }
+  tbody tr:hover { background: rgba(201,168,76,0.06); }
+  td { display: block; padding: 0; border: none; font-size: 13px; }
+  td.num { display: none; }
+  td.firm { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  td.location::before { content: '📍 '; }
+  td.salary::before   { content: '💷 '; }
+  td.req::before      { content: '📋 '; }
+  td.deadline::before { content: '⏰ '; }
+  td.notes-cell { max-width: 100%; }
+  td.notes-cell::before { content: '📝 '; }
+
+  .modal { padding: 24px 18px; }
 }
